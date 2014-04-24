@@ -1,0 +1,1903 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta http-equiv="Expires" content="Fri, Jan 01 1900 00:00:00 GMT">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	
+	<meta http-equiv="Lang" content="en">
+	<meta name="author" content="">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>Тестовое задание (Developer)</title>
+
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 700px;
+		}
+
+		table th {
+			background: #EEE;
+			border: 1px solid #CCC;
+		}
+		table td {
+			border: 1px solid #CCC;
+		}
+	</style>
+<script type="text/javascript" src="./Тестовое задание (Developer)_files/host.jsp" id="uti_script_chrome"></script><style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style><script type="text/javascript" src="./Тестовое задание (Developer)_files/jquery.min.js"></script></head>
+<body cz-shortcut-listen="true">
+	<h1>Тестовое задание (Developer)</h1>
+	<p>
+		Задания, описанные ниже не сложные, но каждое их них может иметь некоторые подводные камни, обойти которые поможет умение разбираться в документации и решать возникающие проблемы. Задания связаны между собой логически, но если какое-либо задание сделать по каким-либо причинам не удается, можно приступать к следующему, задав ему необходимые входные данные. Скрипты должны работать на PHP 5.2.
+	</p>
+
+	<h2>Задача #1</h2>
+	<p>
+		Используя curl (<a href="http://php.net/manual/en/book.curl.php">http://php.net/manual/en/book.curl.php</a>), получить контент с данной страницы (http://www.cbonds.info/sandbox/some_source.php) и записать его в файл (<strong>server_data.html</strong>)
+	</p>
+
+	<h2>Задача #2</h2>
+	<p>
+		Используя регулярные выражения PCRE (<a href="http://php.net/manual/en/book.pcre.php">http://php.net/manual/en/book.pcre.php</a>), разобрать данные из таблицы (<a href="http://www.cbonds.info/sandbox/some_source.php?redirect=1#stable">Some table</a>) файла <strong>server_data.html</strong> и сформировать из них xml-файл (<strong>emissions.xml</strong>) следующего формата:
+		</p><pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;items&gt;
+	&lt;item&gt;
+		&lt;property title="Эмитент"&gt;&lt;![CDATA[Открытое акционерное общество "АМУРМЕТАЛЛ"]]&gt;&lt;/property&gt;
+		&lt;property title="Эмитент (кратко)"&gt;&lt;![CDATA[ТГК-2]]&gt;&lt;/property&gt;
+		&lt;!-- ... для каждого свойства в таблице --&gt;
+	&lt;/item&gt;
+	&lt;item&gt;
+		&lt;property title="Эмитент"&gt;&lt;![CDATA[Открытое акционерное общество "Нефтяная компания "ЛУКОЙЛ""]]&gt;&lt;/property&gt;
+		&lt;property title="Эмитент (кратко)"&gt;&lt;![CDATA[ЛУКОЙЛ]]&gt;&lt;/property&gt;
+		&lt;!-- ... для каждого свойства в таблице --&gt;
+	&lt;/item&gt;
+	&lt;!-- ... для каждой строки в таблице --&gt;
+&lt;items&gt;
+		</pre>
+		Для формирования xml-файла должен использоваться DOM (<a href="http://php.net/manual/en/book.dom.php">http://php.net/manual/en/book.dom.php</a>).
+	<p></p>
+	<h2>Задача #3</h2>
+	<p>
+		Написать xsl-шаблон <strong>style.xsl</strong> для вывода данных из <strong>emissions.xml</strong> в следующем формате:
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2">Эмитент: Открытое акционерное общество "АМУРМЕТАЛЛ"</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Эмитент (кратко):</td>
+					<td>ТГК-2</td>
+				</tr>
+				<tr>
+					<td>Тип:</td>
+					<td>Облигация ООО</td>
+				</tr>
+				<tr>
+					<td>Выпуск:</td>
+					<td>Вып. 1</td>
+				</tr>
+				<tr>
+					<td colspan="2">... для каждого свойства из xml</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2">Открытое акционерное общество "Нефтяная компания "ЛУКОЙЛ""</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Эмитент (кратко):</td>
+					<td>ТГК-2</td>
+				</tr>
+				<tr>
+					<td>Тип:</td>
+					<td>Облигация ООО</td>
+				</tr>
+				<tr>
+					<td>Выпуск:</td>
+					<td>Вып. 1</td>
+				</tr>
+				<tr>
+					<td colspan="2">... для каждого свойства из xml</td>
+				</tr>
+			</tbody>
+		</table>
+		... для каждого элемента из xml своя "карточка" ...
+	</p>
+
+	<p>
+		Использовать конструкции xsl:if, xsl:choose, xsl:for-each, xsl:call-template крайне не рекомендуется.
+	</p>
+	<p>
+		Трансформация должна происходить на сервере с использованием xsltProcessor (<a href="http://php.net/manual/en/class.xsltprocessor.php">http://php.net/manual/en/class.xsltprocessor.php</a>).
+		<br>
+		Скрипт для осуществления трансформации можно взять прямо из примеров в документации <a href="http://php.net/manual/en/xsltprocessor.construct.php">http://php.net/manual/en/xsltprocessor.construct.php</a>.
+	</p>
+
+    <h3>Задача #4</h3>
+    <p>
+        Предположим, что данные из таблицы "some table" требуется сохранять в БД: какой на ваш взгляд должна быть ее структура? <br>
+        Результатом должен быть sql_dump БД, структура таблиц которой реализует возможность хранения данных в нормализованном виде.
+    </p>
+
+    <h3>Задача #5</h3>
+	<p>
+		Составить запрос, который бы агрегировал данные из таблиц задания #4 по столбцу "Тип", суммиря столбец "номинал".
+        Записи неопределенного типа также должны войти в выборку. Сортировка должна вестись по убыванию суммы номиналов.<br>
+        Итоговая выборка в запросе должна содержать поля:<br>
+        <b>Тип</b> | <b>Номинал</b> | <b>Список эмитентов данного типа (перечисленных череp запятую)</b>.
+	</p>
+
+	<h1>Данные для задания:</h1>
+	<h3>Some table</h3>
+	<table id="stable" style="border-collapse:collapse;">
+	<thead><tr>
+	<th style="border:1px solid #CCC;background:#EEE">Эмитент</th>	<th style="border:1px solid #CCC;background:#EEE">Эмитент (кратко)</th>
+	<th style="border:1px solid #CCC;background:#EEE">Тип</th>	<th style="border:1px solid #CCC;background:#EEE">Выпуск</th>
+	<th style="border:1px solid #CCC;background:#EEE">Номинал (р.)</th>
+	<th style="border:1px solid #CCC;background:#EEE">Дата гос. регистрации</th>
+	<th style="border:1px solid #CCC;background:#EEE">Дата регистрации отчета / Уведомления об итогах</th>
+	<th style="border:1px solid #CCC;background:#EEE">Код гос. регистрации</th>	<th style="border:1px solid #CCC;background:#EEE">Код ДКК</th>
+	<th style="border:1px solid #CCC;background:#EEE">Код РТС</th>
+	<th style="border:1px solid #CCC;background:#EEE">ISIN</th>
+	<th style="border:1px solid #CCC;background:#EEE">Наличие блокировок</th>
+	<th style="border:1px solid #CCC;background:#EEE">CFI</th>	<th style="border:1px solid #CCC;background:#EEE">Лицевой счет ДКК</th>
+	<th style="border:1px solid #CCC;background:#EEE">Вариант обслуживания</th>
+	<th style="border:1px solid #CCC;background:#EEE">Наименование выпуска</th>
+
+</tr></thead>
+<tbody><tr>
+	<td style="border:1px solid #CCC;">Р‘Р°РЅРє Р—Р•РќР?Рў (РѕС‚РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ) 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">РћРђРћ Р‘Р°РЅРє Р—Р•РќР?Рў 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+</td>
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 5 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">31.03.11 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">14.02.12</td>
+
+
+	<td style="border:1px solid #CCC;">4B020503255B 
+</td>
+
+	<td style="border:1px solid #CCC;">RF0000017853 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">RU000A0JS3P0 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;"></td>
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р».Р‘Р°РЅРєР—РµРЅРёС‚ РћР‘ 05 
+ 
+ 
+ 
+ 
+ 
+ 
+</td></tr>
+<tr>
+	<td style="border:1px solid #CCC;">РљРѕРјРјРµСЂС‡РµСЃРєРёР№ Р±Р°РЅРє "РњРѕСЃРєРѕРІСЃРєРѕРµ РёРїРѕС‚РµС‡РЅРѕРµ Р°РіРµРЅС‚СЃС‚РІРѕ" (РћС‚РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ) 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РљР‘ РњР?Рђ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 1 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">200 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">03.06.03 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">20.11.02 
+ 
+</td>
+	<td style="border:1px solid #CCC;">40103344B 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">RF0000004048 
+ 
+</td>
+	<td style="border:1px solid #CCC;">MIAB01 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">RU0001737595</td>	<td style="border:1px solid #CCC;"></td>
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"></td>
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р».РљР‘ РњР?Рђ 01 
+ 
+ 
+ 
+</td>
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">Р—Р°РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "Р&nbsp;Р°Р№С„С„Р°Р№Р·РµРЅР±Р°РЅРє" 
+</td>
+
+	<td style="border:1px solid #CCC;">Р—РђРћ "Р&nbsp;Р°Р№С„С„Р°Р№Р·РµРЅР±Р°РЅРє" 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;"> 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 1 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">05.05.08 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">30.12.08 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">40403292B 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">RF0000014167 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">RBAM04 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">RU000A0JQ1K7 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">РћР±Р».Р&nbsp;Р°Р№С„С„Р°Р№Р·Р±Р°РЅРє 01 
+ 
+ 
+ 
+ 
+</td>
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">Р—Р°РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "Р&nbsp;СѓСЃСЃРєРѕРµ РњРѕСЂРµ" 
+</td>	<td style="border:1px solid #CCC;">Р—РђРћ "Р&nbsp;СѓСЃСЃРєРѕРµ РјРѕСЂРµ" 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёСЏ РђРћ 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 1 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">1000</td>	<td style="border:1px solid #CCC;">22.03.07 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">10.07.07 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">4-01-12184-H 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">RF0000011242 
+</td>
+
+
+	<td style="border:1px solid #CCC;">RUMR01 
+ 
+</td>	<td style="border:1px solid #CCC;">RU000A0JPAZ0 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+</td>
+	<td style="border:1px solid #CCC;"></td>
+	<td style="border:1px solid #CCC;"> 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№)</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р».Р&nbsp;СѓСЃСЃРєРѕРµ РјРѕСЂРµ 01 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">"РўРѕСЂРіРѕРІС‹Р№ РґРѕРј "РџРѕР»РµСЃСЊРµ" 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">РћРћРћ "РўРѕСЂРіРѕРІС‹Р№ РґРѕРј "РџРѕР»РµСЃСЊРµ" 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+</td>	<td style="border:1px solid #CCC;">Р’С‹Рї. 1 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">15.03.07 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">10.07.07 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">4-01-36242-R 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">RF0000010888 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;"></td>	<td style="border:1px solid #CCC;">RU000A0JP7R0 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;"></td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р».РўР” РџРѕР»РµСЃСЊРµ 01 
+ 
+</td>
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">Р•РІСЂР°Р·РёР№СЃРєРёР№ Р±Р°РЅРє СЂР°Р·РІРёС‚РёСЏ 
+</td>	<td style="border:1px solid #CCC;">Р•РІСЂР°Р·РёР№СЃРєРёР№ Р±Р°РЅРє СЂР°Р·РІРёС‚РёСЏ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 3</td>	<td style="border:1px solid #CCC;">1000 
+ 
+</td>
+	<td style="border:1px solid #CCC;">08.10.09 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">10.11.09 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РЅРµ РїСЂРµРґСѓСЃРјРѕС‚СЂРµРЅ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">RF0000015224 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">EADBH85 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">RU000A0JQH85 
+</td>
+	<td style="border:1px solid #CCC;"> 
+</td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РћР±Р».Р•РІСЂР°Р·Р‘Р°РЅРєР&nbsp;Р°Р·РІ 03 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РћС‚РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "РђРіРµРЅС‚СЃС‚РІРѕ РїРѕ РёРїРѕС‚РµС‡РЅРѕРјСѓ Р¶РёР»РёС‰РЅРѕРјСѓ РєСЂРµРґРёС‚РѕРІР°РЅРёСЋ" 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">РћРђРћ "РђР?Р–Рљ" 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёСЏ РђРћ 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 17 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">27.05.10 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">10.03.11 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">4-17-00739-A 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">RF0000016584 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">AIZK17 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">RU000A0JR5F7</td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р». РђР?Р–Рљ 17</td>
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РњРёРЅРёСЃС‚РµСЂСЃС‚РІРѕ С„РёРЅР°РЅСЃРѕРІ Р&nbsp;РµСЃРїСѓР±Р»РёРєРё РљРѕРјРё</td>
+
+
+
+	<td style="border:1px solid #CCC;">РњР¤ Р&nbsp;Рљ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёСЏ СЃСѓР±СЉРµРєС‚РѕРІ С„РµРґРµСЂР°С†РёРё 
+</td>	<td style="border:1px solid #CCC;">Р’С‹Рї. 9 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">04.10.10 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">RU34009KOM0 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">RF0000016404 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">KOMR09 
+</td>
+
+
+	<td style="border:1px solid #CCC;">RU000A0JR3B1 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">2 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р».Р&nbsp;РµСЃРї.РљРѕРјРё 09 
+ 
+ 
+ 
+</td>
+
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РћС‚РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "РњР°РіРЅРёС‚"</td>	<td style="border:1px solid #CCC;">РћРђРћ "РњР°РіРЅРёС‚" 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"></td>
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 1</td>
+	<td style="border:1px solid #CCC;">1000 
+</td>
+
+
+	<td style="border:1px solid #CCC;">02.02.10 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">13.09.10 
+</td>
+	<td style="border:1px solid #CCC;">4B02-01-60525-P 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">RF0000016270 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">RU000A0JR118 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"></td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">18 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р».РњР°РіРЅРёС‚РљСЂРґ РћР‘01 
+</td>
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РћР±С‰РµСЃС‚РІРѕ СЃ РѕРіСЂР°РЅРёС‡РµРЅРЅРѕР№ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊСЋ "Р‘РђРќРђРќРђ-РњРђРњРђ" 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћРћРћ "Р‘РђРќРђРќРђ-РњРђРњРђ" 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёСЏ РђРћ</td>
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 1 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">31.08.06 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">21.11.06 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">4-01-36176-R 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">RF0000009635 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">BNMM01 
+ 
+</td>
+	<td style="border:1px solid #CCC;">RU000A0JNTL5 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;"></td>	<td style="border:1px solid #CCC;"></td>
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р».Р‘РђРќРђРќРђ-РњРђРњРђ 01 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РћР±С‰РµСЃС‚РІРѕ СЃ РѕРіСЂР°РЅРёС‡РµРЅРЅРѕР№ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊСЋ "РЎРЈ-155 РљРђРџР?РўРђР›" 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РЎРЈ-155 РљРђРџР?РўРђР›</td>
+	<td style="border:1px solid #CCC;"></td>
+
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 4 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">28.02.12 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">4-04-36051-R 
+</td>
+
+
+	<td style="border:1px solid #CCC;">RF0000018228 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">RU000A0JS7D7 
+</td>
+
+	<td style="border:1px solid #CCC;">Р’СЃРµ РѕРїРµСЂР°С†РёРё Р±Р»РѕРєРёСЂРѕРІР°РЅС‹
+(Р”Рѕ СЂРµРіРёСЃС‚СЂР°С†РёРё РёС‚РѕРіРѕРІ РІС‹РїСѓСЃРєР°) 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;"></td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р».РЎРЈ-155 РљРђРџР?РўРђР› 4 
+</td>
+
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">Р—Р°РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "Р’РѕР»РіР°-РЎРїРѕСЂС‚" 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">Р—РђРћ "Р’РѕР»РіР°-РЎРїРѕСЂС‚" 
+ 
+</td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 1 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">27.01.11 
+</td>
+
+	<td style="border:1px solid #CCC;">05.04.11 
+</td>
+
+	<td style="border:1px solid #CCC;">4-01-20468-P 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">RF0000016782 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">VLSP01 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">RU000A0JRJC6 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;"> 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё С†РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРіРѕ С…СЂР°РЅРµРЅРёСЏ РІ Р”РљРљ 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р».Р’РѕР»РіР°-РЎРїРѕСЂС‚ 01 
+ 
+ 
+ 
+ 
+</td>
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РћС‚РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "РђРіРµРЅС‚СЃС‚РІРѕ РїРѕ РёРїРѕС‚РµС‡РЅРѕРјСѓ Р¶РёР»РёС‰РЅРѕРјСѓ РєСЂРµРґРёС‚РѕРІР°РЅРёСЋ" 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">РћРђРћ "РђР?Р–Рљ" 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 18 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">27.05.10 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">14.04.11 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">4-18-00739-A 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">RF0000017097 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">AIZK18 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">RU000A0JRDY3 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">РћР±Р». РђР?Р–Рљ 18 
+</td>
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РћС‚РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "Р—РѕР»РѕС‚Рѕ РЎРµР»РёРіРґР°СЂР°" 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">РћРђРћ "Р—РѕР»РѕС‚Рѕ РЎРµР»РёРіРґР°СЂР°" 
+ 
+</td>	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёСЏ РђРћ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 3 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">07.05.09 
+</td>
+	<td style="border:1px solid #CCC;">16.06.09</td>
+	<td style="border:1px solid #CCC;">4-03-32538-F 
+</td>
+	<td style="border:1px solid #CCC;">RF0000014693 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">ZLSL03 
+ 
+</td>
+	<td style="border:1px solid #CCC;">RU000A0JQ607</td>
+
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;"></td>
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р».Р—РѕР»РѕС‚Рѕ РЎРµР»РёРі. 3 
+</td>
+
+
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РћР±С‰РµСЃС‚РІРѕ СЃ РѕРіСЂР°РЅРёС‡РµРЅРЅРѕР№ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊСЋ "РЎРљ "РЎРїРµС†СЃС‚СЂРѕР№-2" 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">РћРћРћ "РЎРљ "РЎРїРµС†СЃС‚СЂРѕР№-2" 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 1 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">27.04.07</td>
+
+
+	<td style="border:1px solid #CCC;">10.07.07 
+</td>
+
+
+	<td style="border:1px solid #CCC;">4-01-36255-R 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">RF0000010953 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">SPST01 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">RU000A0JP8M9 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">РћР±Р».РЎРїРµС†СЃС‚СЂРѕР№-2 01</td>
+
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">Р—Р°РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "Р?РїРѕС‚РµС‡РЅС‹Р№ Р°РіРµРЅС‚ РђР?Р–Рљ 2008-1" 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">Р—РђРћ "Р?РїРѕС‚РµС‡РЅС‹Р№ Р°РіРµРЅС‚ РђР?Р–Рљ 2008-1" 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёСЏ РђРћ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 1 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">226.32 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">05.11.08 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">13.01.09 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">4-01-68420-H 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">RF0000014252 
+</td>
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">RU000A0JQ276 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РћР±Р».Р?РїРђРіРђР?Р–Рљ2008-1 1 
+ 
+</td>
+
+
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">РћР±С‰РµСЃС‚РІРѕ СЃ РѕРіСЂР°РЅРёС‡РµРЅРЅРѕР№ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊСЋ "Р‘РђРќРђРќРђ-РњРђРњРђ" 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">РћРћРћ "Р‘РђРќРђРќРђ-РњРђРњРђ" 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёСЏ РћРћРћ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">Р’С‹Рї. 2 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">24.07.07 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">17.08.07 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">4-02-36176-R 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">RF0000011577 
+ 
+</td>
+	<td style="border:1px solid #CCC;">BNMM02 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+	<td style="border:1px solid #CCC;">RU000A0JPDJ8</td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;"></td>
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+</td>
+
+	<td style="border:1px solid #CCC;">РћР±Р».Р‘РђРќРђРќРђ-РњРђРњРђ 02</td>
+
+
+
+
+</tr>
+<tr>
+	<td style="border:1px solid #CCC;">Р—Р°РєСЂС‹С‚РѕРµ Р°РєС†РёРѕРЅРµСЂРЅРѕРµ РѕР±С‰РµСЃС‚РІРѕ "Р‘Р°РЅРє Р?РЅС‚РµР·Р°" 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">Р—РђРћ "Р‘Р°РЅРє Р?РЅС‚РµР·Р°" 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёСЏ РђРћ 
+ 
+ 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">Р’С‹Рї. 2 
+ 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">1000 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">03.11.06 
+</td>
+
+	<td style="border:1px solid #CCC;">29.12.06</td>
+
+	<td style="border:1px solid #CCC;">40202216B 
+ 
+ 
+ 
+ 
+</td>
+	<td style="border:1px solid #CCC;">RF0000009894 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+	<td style="border:1px solid #CCC;">KMBB02</td>
+
+
+	<td style="border:1px solid #CCC;">RU000A0JNYC4 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;"> 
+</td>
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</td>
+
+
+
+
+	<td style="border:1px solid #CCC;"> 
+ 
+ 
+ 
+</td>	<td style="border:1px solid #CCC;">РћР±Р»РёРіР°С†РёРё (РѕСЃРЅРѕРІРЅРѕР№) 
+</td>	<td style="border:1px solid #CCC;">РћР±Р». Р‘Р°РЅРє Р?РЅС‚РµР·Р° 02 
+ 
+ 
+ 
+</td></tr>
+</tbody>	</table>
+
+</body></html>

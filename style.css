@@ -1,0 +1,14 @@
+td{
+    border: 1px solid #000;
+}
+
+table{
+    border-collapse: collapse;
+    width: 800px;
+}
+
+td.title{
+    font-weight: bold;
+    text-align: center;
+    background: #dedede;
+}
